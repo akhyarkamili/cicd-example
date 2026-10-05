@@ -1,0 +1,13 @@
+.git
+.idea
+.vscode
+.venv
+.pytest_cache
+**/__pycache__
+*.py[cod]
+build
+dist
+*.egg-info
+.env
+Dockerfile
+compose.yaml
