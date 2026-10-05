@@ -14,8 +14,11 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "bandit>=1.9.4",
     "httpx2>=2.13.1",
+    "pip-audit>=2.10.1",
     "pytest>=8",
+    "ruff>=0.16.10",
 ]
 
 [build-system]
@@ -28,3 +31,13 @@ packages = ["src/weather"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]

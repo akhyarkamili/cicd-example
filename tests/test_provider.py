@@ -28,9 +28,7 @@ def test_unknown_city_raises(provider: FakeWeatherProvider) -> None:
 
 
 @pytest.mark.parametrize("city", FakeWeatherProvider().cities)
-def test_readings_are_within_plausible_ranges(
-    provider: FakeWeatherProvider, city: str
-) -> None:
+def test_readings_are_within_plausible_ranges(provider: FakeWeatherProvider, city: str) -> None:
     for reading in provider.get_readings(city, DAY, 30):
         assert 0 <= reading.humidity <= 100
         assert 0 <= reading.wind_kmh < 40

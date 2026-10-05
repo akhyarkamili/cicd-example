@@ -26,9 +26,7 @@ class ReadingRecord(Base):
     humidity: Mapped[int] = mapped_column(Integer)
     wind_kmh: Mapped[float] = mapped_column(Float)
     condition: Mapped[str] = mapped_column(String(20))
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
-    )
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     @classmethod
     def from_reading(cls, reading: Reading) -> "ReadingRecord":
